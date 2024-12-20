@@ -254,7 +254,7 @@
                         <h5>IT-Support</h5>
                         <p>Ich biete umfassenden Support für alle IT-Angelegenheiten. Als Experte stehe ich Ihnen mit
                             technischen Lösungen zur Seite, um Ihre Geräte und Systeme jederzeit optimal zu betreiben.</p>
-                        <ul class="text-start">
+                        <ul class="text-start"><br>
                             <li>Fernwartung und technische Beratung</li>
                             <li>Erfahrung mit Proxmox und Docker</li>
                             <li>Windows Server Erfahrung</li>
@@ -293,18 +293,19 @@
         <p class="text-center">Kontaktieren Sie mich, um mehr über meine Dienstleistungen zu erfahren!</p>
         <div class="row">
             <div class="col-md-6">
-                <form action="#" method="POST">
+                <!-- Formulario -->
+                <form action="mailto:icloudonlinech@gmail.com" method="POST" enctype="text/plain">
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Ihr Name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Ihr Name" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">E-Mail</label>
-                        <input type="email" class="form-control" id="email" placeholder="Ihre E-Mail">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Nachricht</label>
-                        <textarea class="form-control" id="message" rows="4" placeholder="Ihre Nachricht"></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Ihre Nachricht" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-light">Absenden</button><br><br>
                 </form>
