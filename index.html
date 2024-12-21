@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iCloudOnline</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
+        /* General Body Styles */
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
@@ -38,8 +41,73 @@
             color: #021759 !important;
         }
 
-        .navbar .navbar-toggler-icon {
-            background-color: #e8efff;
+        .navbar-toggler {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: auto;
+            padding: 8px 15px;
+            background-color: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 25px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler:hover {
+            background-color: #f9fafc;
+            transform: scale(1.05);
+        }
+
+        .navbar-toggler .navbar-toggler-icon {
+            position: relative;
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #014b96;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler .navbar-toggler-icon::before,
+        .navbar-toggler .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: #014b96;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler .navbar-toggler-icon::before {
+            transform: translateY(-7px);
+        }
+
+        .navbar-toggler .navbar-toggler-icon::after {
+            transform: translateY(7px);
+        }
+
+        .navbar-toggler.collapsed .navbar-toggler-icon {
+            background-color: transparent;
+        }
+
+        .navbar-toggler.collapsed .navbar-toggler-icon::before {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .navbar-toggler.collapsed .navbar-toggler-icon::after {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .navbar-toggler-text {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #014b96;
+        }
+
+        .navbar-toggler.collapsed .navbar-toggler-text {
+            color: #021759;
         }
 
         .navbar-brand img:hover {
@@ -155,10 +223,9 @@
 
         /* Contact Section */
         #contact {
-            background-color: rgba(0, 37, 76, 0.06);
+            background-color: #f0f4f8;
             color: #000000;
             padding: 60px 20px;
-            border-top: 3px solid #ffffff;
         }
 
         #contact .form-control {
@@ -174,40 +241,68 @@
             .service-card img {
                 height: 150px;
             }
-        }
 
-        /* Ocultar el logo en dispositivos móviles */
-        @media (max-width: 768px) {
+            /* Ocultar el logo en dispositivos móviles */
             .navbar .navbar-brand img {
                 display: none;
             }
         }
+        h5{
+            font-weight: bold;
+        }
 
+
+        /* Centramos el contenedor de los iconos de redes sociales */
+        .social-icons {
+            display: flex;
+            justify-content: center; /* Centra los iconos horizontalmente */
+            align-items: center; /* Centra los iconos verticalmente */
+            gap: 20px; /* Espacio entre los iconos */
+        }
+
+        /* Opcional: añadir un pequeño hover effect */
+        .social-icons a {
+            font-size: 2rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #007bff; /* Cambia el color del icono cuando se pasa el cursor */
+        }
     </style>
 </head>
 
 <body>
 
 <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg py-3">
     <div class="container">
         <!-- Logo -->
         <a class="navbar-brand" href="#">
-            <img src="./fotos/logo.png" alt="iCloudOnline Logo">
+            <img src="./fotos/logo.png" alt="iCloudOnline Logo" class="logo">
         </a>
 
         <!-- Botón Toggle -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-text">Menu</span>
         </button>
 
-        <!-- Links -->
+        <!-- Contenido Expandible -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#services">Dienste</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">Über mich</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Kontakt</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Dienste</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Über mich</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Kontakt</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -253,7 +348,8 @@
                     <div class="service-card-body">
                         <h5>IT-Support</h5>
                         <p>Ich biete umfassenden Support für alle IT-Angelegenheiten. Als Experte stehe ich Ihnen mit
-                            technischen Lösungen zur Seite, um Ihre Geräte und Systeme jederzeit optimal zu betreiben.</p>
+                            technischen Lösungen zur Seite, um Ihre Geräte und Systeme jederzeit optimal zu
+                            betreiben.</p>
                         <ul class="text-start"><br>
                             <li>Fernwartung und technische Beratung</li>
                             <li>Erfahrung mit Proxmox und Docker</li>
@@ -274,13 +370,132 @@
         <h2 class="section-title text-white text-center mb-5">Über mich</h2>
         <div class="row align-items-center">
             <div class="col-md-6 text-center text-md-start px-3 py-3">
-                <p>Mit jahrelanger Erfahrung und einem tiefen Verständnis moderner Technologien stehe ich als Ihr IT-Spezialist für Qualität, Effizienz und Zuverlässigkeit.</p>
-                <p>Ich helfe Ihnen dabei, Ihre IT-Infrastruktur zu optimieren, Probleme schnell und effektiv zu lösen und die Leistungsfähigkeit Ihrer Geräte zu maximieren.</p>
-                <p>Als IT-Spezialist bin ich stets daran interessiert, massgeschneiderte Lösungen für Ihre individuellen Bedürfnisse zu finden. Bei mir erhalten Sie kompetente und schnelle Unterstützung.</p>
-                <p>icloudonline steht Ihnen jederzeit zur Seite – für technische Unterstützung, schnelle Lösungen und kosteneffiziente Dienstleistungen.</p>
+                <p>Mit jahrelanger Erfahrung und einem tiefen Verständnis moderner Technologien stehe ich als Ihr
+                    IT-Spezialist für Qualität, Effizienz und Zuverlässigkeit.</p>
+                <p>Ich helfe Ihnen dabei, Ihre IT-Infrastruktur zu optimieren, Probleme schnell und effektiv zu lösen
+                    und die Leistungsfähigkeit Ihrer Geräte zu maximieren.</p>
+                <p>Als IT-Spezialist bin ich stets daran interessiert, massgeschneiderte Lösungen für Ihre individuellen
+                    Bedürfnisse zu finden. Bei mir erhalten Sie kompetente und schnelle Unterstützung.</p>
+                <p>icloudonline steht Ihnen jederzeit zur Seite – für technische Unterstützung, schnelle Lösungen und
+                    kosteneffiziente Dienstleistungen.</p>
             </div>
             <div class="col-md-6 text-center px-3 py-3">
                 <img src="./fotos/2149241211.jpg" alt="Über mich Bild" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQs Section -->
+<
+<section id="faqs" style="padding: 80px 20px; background-color: #f0f4f8;">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Häufig gestellte Fragen (FAQs)</h2>
+        <div class="accordion" id="faqsAccordion">
+            <!-- FAQ 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1Heading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq1"
+                            aria-expanded="false" aria-controls="faq1">
+                        Wie lange dauert eine PC-Formatierung?
+                    </button>
+                </h2>
+                <div id="faq1" class="accordion-collapse collapse show" aria-labelledby="faq1Heading"
+                     data-bs-parent="#faqsAccordion">
+                    <div class="accordion-body">
+                        Eine PC-Formatierung dauert in der Regel zwischen 1-2 Stunden, abhängig von den spezifischen
+                        Anforderungen und dem Zustand des Computers.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2Heading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                        Bieten Sie Dienstleistungen für Privatkunden an?
+                    </button>
+                </h2>
+                <div id="faq2" class="accordion-collapse collapse" aria-labelledby="faq2Heading"
+                     data-bs-parent="#faqsAccordion">
+                    <div class="accordion-body">
+                        Ja, ich unterstütze auch Privatkunden bei allen IT-Bedürfnissen, von der Reparatur bis hin zur
+                        Einrichtung neuer Geräte.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3Heading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                        Wie viel kosten Ihre Dienstleistungen?
+                    </button>
+                </h2>
+                <div id="faq3" class="accordion-collapse collapse" aria-labelledby="faq3Heading"
+                     data-bs-parent="#faqsAccordion">
+                    <div class="accordion-body">
+                        Die Kosten hängen von Ihren individuellen Anforderungen und der Art der Dienstleistung ab. Ich
+                        erstelle gerne ein persönliches Angebot, das genau auf Ihre Bedürfnisse abgestimmt ist.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq4Heading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                        Welche Dienstleistungen bieten Sie für Privatpersonen an?
+                    </button>
+                </h2>
+                <div id="faq4" class="accordion-collapse collapse" aria-labelledby="faq4Heading"
+                     data-bs-parent="#faqsAccordion">
+                    <div class="accordion-body">
+                        Ich biete verschiedene Dienstleistungen für Privatkunden an, wie z.B.:
+                        <ul>
+                            <li>Hardware-Austausch (z.B. Festplatten, RAM, Akkus)</li>
+                            <li>Systemformatierungen und Betriebssystem-Installationen</li>
+                            <li>Reparaturen an Laptops und Desktop-Computern</li>
+                            <li>Netzwerkeinrichtung und WLAN-Optimierung</li>
+                            <li>Datensicherung und Wiederherstellung</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 5 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq5Heading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                        Kann ich auch Hilfe bei Softwareproblemen bekommen?
+                    </button>
+                </h2>
+                <div id="faq5" class="accordion-collapse collapse" aria-labelledby="faq5Heading"
+                     data-bs-parent="#faqsAccordion">
+                    <div class="accordion-body">
+                        Absolut! Ich helfe bei Problemen mit Software-Installationen, Fehlermeldungen, Virenentfernung
+                        und
+                        der Einrichtung neuer Programme.
+                    </div>
+                </div>
+            </div>
+            <!-- FAQ 6 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq6Heading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#faq6" aria-expanded="false" aria-controls="faq6">
+                        Kann ich eine Fernwartung für kleinere Probleme buchen?
+                    </button>
+                </h2>
+                <div id="faq6" class="accordion-collapse collapse" aria-labelledby="faq6Heading"
+                     data-bs-parent="#faqsAccordion">
+                    <div class="accordion-body">
+                        Ja, ich biete Fernwartung an, um kleinere Probleme schnell zu lösen, ohne dass ein
+                        Vor-Ort-Besuch
+                        erforderlich ist. Bitte kontaktieren Sie mich, um dies zu arrangieren.
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -291,6 +506,7 @@
     <div class="container">
         <h2 class="section-title text-center">Kontakt</h2>
         <p class="text-center">Kontaktieren Sie mich, um mehr über meine Dienstleistungen zu erfahren!</p>
+
         <div class="row">
             <div class="col-md-6">
                 <!-- Formulario -->
@@ -301,13 +517,16 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">E-Mail</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+                        <input type="email" class="form-control" id="email" name="email"
+                               placeholder="Ihre E-Mail-Adresse" required>
                     </div>
                     <div class="mb-3">
                         <label for="message" class="form-label">Nachricht</label>
-                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Ihre Nachricht" required></textarea>
+                        <textarea class="form-control" id="message" name="message" rows="4" placeholder="Ihre Nachricht"
+                                  required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-light">Absenden</button><br><br>
+                    <button type="submit" class="btn btn-light">Absenden</button>
+                    <br><br>
                 </form>
             </div>
             <div class="col-md-6">
@@ -320,12 +539,66 @@
             </div>
         </div>
     </div>
+
 </section>
+<!-- Live Chat Button -->
+<div style="position: fixed; bottom: 50px; right: 20px; z-index: 1000;">
+    <a href="https://wa.me/+41798545645" target="_blank"
+       style="background-color: #0e4d98; color: white; padding: 15px 20px; border-radius: 50px; text-decoration: none; font-size: 1rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        Chat mit mir <i class="bi bi-whatsapp"></i>
+    </a>
+</div>
+
 
 <!-- Footer -->
-<footer>
-    <p>&copy; 2024 icloudonline | Alle Rechte vorbehalten.</p>
+<!-- Footer -->
+<!-- Footer -->
+<footer style="background-color: #022950; color: #fff; padding: 40px 0; border-top: 3px solid #0b0b0b;">
+    <div class="container">
+        <div class="row">
+            <!-- Unternehmensinformation -->
+            <div class="col-md-4">
+                <h5 class="mb-4">icloudonline</h5>
+                <p>Dein Partner für IT-Lösungen. Ich biete spezialisierte Dienstleistungen, um Ihre IT-Infrastruktur
+                    zu optimieren und technische Probleme schnell zu lösen.</p>
+            </div>
+
+            <!-- Schnelle Links -->
+            <div class="col-md-4">
+                <ul class="list-unstyled">
+                    <li><a href="#services" class="text-white" style="text-decoration: none;">Dienstleistungen</a></li>
+                    <li><a href="#about" class="text-white" style="text-decoration: none;">Über uns</a></li>
+                    <li><a href="#contact" class="text-white" style="text-decoration: none;">Kontakt</a></li>
+                    <li><a href="#" class="text-white" style="text-decoration: none;">AGB</a></li>
+                    <li><a href="#" class="text-white" style="text-decoration: none;">Datenschutzrichtlinie</a></li>
+                </ul>
+            </div>
+
+            <!-- Soziale Netzwerke -->
+            <div class="col-md-4">
+                <h5 class="mb-4">Folge uns</h5>
+                <!-- Aplicamos la clase de centrado con flexbox -->
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.twitter.com" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://www.instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank"><i class="bi bi-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="text-center mt-4">
+            <p>&copy; 2024 icloudonline. Alle Rechte vorbehalten.</p>
+        </div>
+    </div>
 </footer>
+
+<!-- Incluir Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
